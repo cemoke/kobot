@@ -83,7 +83,7 @@ Custom ROS messages used by the Kobot sub-systems and behavioural nodes:
 - floor_sensor, i.e. array of individual IR floor sensor readings.
 - landmark_pose, landmarks are abstracted by using Aruco markers, 
 ## Parameter Files
-Also two types of parameter files in .yaml format are used to configure the nodes:
+Three types of parameter files in .yaml format are used to configure the operation of the nodes:
 - Behavioural parameters
   - flocking
   - alignment (modified flocking beta=0, u_max=0)
@@ -160,9 +160,9 @@ SOFTWARE.
 # 6.Additional Links
 ## Related Repositories
 ![Alt text](img/software_architecture.png?raw=true "Title")
-- kobotArduino [Link] TODO
-- BpVL53L1 [Link] TODO
-- kobot_base [Link] TODO
+- kobotMotorController [Link](https://github.com/cemoke/kobotMotorController)
+- kobotRangeNBearing [Link](https://github.com/cemoke/kobotRangeNBearing.git)
+- kobot_base [Link](https://github.com/cemoke/kobot_base.git)
 ## Related Webpages
 - ROMER -- Instuition where Kobot platform is deleoped [Webpage](https://romer.metu.edu.tr/tr)
 - Kovan Research Lab -- Laboratory where Kobot platform is developed [Webpage](https://kovan.ceng.metu.edu.tr/)
