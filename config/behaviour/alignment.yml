@@ -1,0 +1,18 @@
+rb_freq: 20
+imu_freq: 25
+heading_freq: 25
+motor_freq: 25
+flocking_freq: 25
+flocking_params: {
+  K_p: 5.0,
+  alpha: 1.0,
+  beta: 0.0,
+  gamma: 1.0,
+  zeta: 0.2,
+  u_max: 0.00,
+  sigma_des_robot: 3,
+  sigma_des_obj: 0,
+  c_obs: 0,
+  c_robot: -0.2,
+  angle_limit: 2,
+  dynamic_flocking_params: true}

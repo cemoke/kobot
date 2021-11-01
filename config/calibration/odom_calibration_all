@@ -1,0 +1,17 @@
+kobotv01
+kobotv02
+kobotv03
+kobotv04
+kobotv05
+kobotv06
+kobotv07
+kobotv08
+# KOBOT motor
+# kinematic_params: {wheel_radius_l: 0.019, wheel_radius_r: 0.019, axle_distance: 0.110, rad_per_s2tick_per_s: 570.41}
+# odom_kinematic_params: {wheel_radius_l: 0.019, wheel_radius_r: 0.019, axle_distance: 0.110, rad_per_s2tick_per_s: 570.41}
+# POLOLU 6V HP 100:1 
+# kinematic_params: {wheel_radius_l: 0.019, wheel_radius_r: 0.019, axle_distance: 0.110, rad_per_s2tick_per_s: 190.986}
+# odom_kinematic_params: {wheel_radius_l: 0.019, wheel_radius_r: 0.01, axle_distance: 0.110, rad_per_s2tick_per_s: 190.986}
+# POLOLU 6V HP 75.8:1 
+kinematic_params: {wheel_radius_l: 0.019, wheel_radius_r: 0.019,axle_distance: 0.110, rad_per_s2tick_per_s: 143.266}
+odom_kinematic_params: {wheel_radius_l: 0.019, wheel_radius_r: 0.019,axle_distance: 0.110, rad_per_s2tick_per_s: 143.266}

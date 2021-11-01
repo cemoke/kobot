@@ -1,0 +1,56 @@
+
+rb_freq: 18
+odom_freq: 25
+floor_sensors_freq: 5
+motor_freq: 25
+lba_freq: 25
+imu_freq: 10
+lba_params: {
+  # aruco detection max dist.
+  d_detect: 0.5,
+  # heading controller gain
+  K_p: 15.0,
+  # threshold for cue
+  I_thresh: 50,
+  # wait constant
+  I_const: 25000,
+  # max. linear speed
+  u_max: 0.12,
+  # direct front
+  obs_detection_thresh_1: 4,
+  # front left, right
+  obs_detection_thresh_2: 4,
+  # direct left, right
+  obs_detection_thresh_3: 7,
+  # direct front
+  obs_robot_detection_thresh_1: 3,
+  # front left, right
+  obs_robot_detection_thresh_2: 4,
+  # direct left, right
+  obs_robot_detection_thresh_3: 7,
+  # direct front
+  cue_exit_robot_thresh_1: 4,
+  # front left, right
+  cue_exit_robot_thresh_2: 4,
+  # all sensors
+  robot_detection_thresh: 3,
+  # moving average filter constants
+  zeta_range: 1.0,
+  zeta_is_robot: 1.0,
+  # max. cue wait time
+  w_max: 90,
+  T_e: 2,
+  # min. ang. err. window for heading control
+  min_ang_err: 0.05,
+  # 2pi/2
+  max_rand_ang: 0.0,
+  # pi/9
+  min_rand_ang: 0.0,
+  # action_id: [5,1],
+  max_ang: 1.0,
+  # epsilon: 1.0,
+  p: 100,
+
+  # params. changed during operation
+  dynamic_lba_params: true}
+

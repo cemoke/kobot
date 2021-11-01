@@ -1,0 +1,15 @@
+*.pyc
+*__pycache__
+/config/imu_calibration.yml
+/config/camera_calibration.yml
+/config/floor_sensor_calibration.yml
+/config/odom_calibration.yml
+/config/motor_calibration.yml
+*.vscode
+*.vim
+*.uds_socket
+*.npz
+/src/scripts/landmark_dict.txt
+*.active
+*.bag
+*.DS_Store

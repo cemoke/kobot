@@ -1,0 +1,17 @@
+# KOBOT motor params
+# Controller params. to send Arduino's discrete PID
+motor_controller_params: {K_p: 1.0, K_i: 8.0, K_d: 0.0, f: 50}
+# Controller params. for high level pos. controller in ROS
+pose_controller_params: {K_p_lin: 0.6, K_p_ang: 10.0, K_i_ang: 0.0, K_d_ang: 10.0, f: 20, dist_tol: 0.04, ang_tol: 0.06, u_max: 0.12}
+# Velocity limit locks for the differential driver
+vel_limits: {v_min: 0, v_max: 1.0, w_min: 0, w_max: 1.2}
+
+# POLOLU 6V HP 75.8:1 
+# Controller params. to send Arduino's discrete PID
+motor_controller_params: {K_p: 1.0, K_i: 2.0, K_d: 0.0, f: 50}
+# Controller params. for high level pos. controller in ROS
+pos_controller_params: {K_p_lin: 0.6, K_p_ang: 10.0, K_i_ang: 0.0, K_d_ang: 10.0, f: 20, dist_tol: 0.04, ang_tol: 0.06, u_max: 0.12}
+# Velocity limit locks for the differential driver
+vel_limits: {v_min: 0, v_max: 1.0, w_min: 0, w_max: 3.0}
+
+

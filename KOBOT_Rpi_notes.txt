@@ -1,0 +1,27 @@
+Important Notes not to forget
+
+R&B Board and Arduino cannot handle 100 KHz I2C
+RPI does not support clock stretching thus we need to
+decrease comm. speed in order to get rid of problems
+40 KHz seems to be working without problems
+
+# Add following lines to the /boot/config.txt
+
+# enable i2c and set its baud rate to 40KHz
+dtparam=i2c_arm=on
+dtparam=i2c1_baudrate=40000
+
+cmdline=nobtcmd.txt
+# enable uart1
+enable_uart=1
+# disable linux serial console at boot
+kernel=vmlinuz
+initramfs initrd.img followkernel
+dtoverlay=pi3-miniuart-bt
+
+include syscfg.txt
+include usercfg.txt
+dtparam=spi=off
+
+start_x=1
+gpu_mem=128

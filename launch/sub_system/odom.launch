@@ -1,0 +1,14 @@
+<launch>
+	<!-- odom frame is coincident with map frame -->
+    <node pkg="tf" type="static_transform_publisher" name="odom_link_broadcaster" args="0 0 0 0 0 0 1 map odom 100" />
+    <node pkg="tf" type="static_transform_publisher" name="world_link_broadcaster" args="0 0 0 0 0 0 1 world map 100" />
+
+    <node pkg="kobot" name="wheel_odom" type="wheel_odom.py"/>
+
+	<!-- <include file="$(find kobot)/launch/filtered_imu.launch"/> -->
+  	<!-- <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true"> -->
+    	<!-- <rosparam command="load" file="$(find kobot)/config/ekf.yaml" /> -->
+    	 <!-- Placeholder for output topic remapping -->
+    	<!-- <remap from="odometry/filtered" to="odom"/> -->
+  	<!-- </node> -->
+</launch>

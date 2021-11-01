@@ -1,0 +1,13 @@
+<launch>
+
+	<include file="$(find kobot)/launch/move.launch"/>
+	<!-- <include file="$(find kobot)/launch/filtered_imu.launch"/> -->
+	<!-- <include file="$(find kobot)/launch/heading.launch"/> -->
+	<include file="$(find kobot)/launch/odom.launch"/>
+
+	<rosparam command="load" file="$(find kobot)/config/flocking_wall.yml" />
+
+	<node pkg="kobot" name="vis_flocking" type="vis_flocking.py"/>
+	<node pkg="kobot" name="flocking" type="flocking_wall.py"/>
+
+</launch>

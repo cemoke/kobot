@@ -1,0 +1,32 @@
+# when rb_freq incresed
+# reading errors increase
+rb_freq: 18
+imu_freq: 30
+heading_freq: 30
+motor_freq: 20
+flocking_freq: 20
+odom_freq: 30
+flocking_params: {
+  # proportional gain of the C.L. heading controller
+  K_p: 5,
+  # weight of resultant virtual heading
+  alpha: 1.0,
+  # weight of resultant virtual force
+  beta: 1.5,
+  # modulation const.
+  gamma: 1.0,
+  # moving average filter const.
+  zeta: 1.0,
+  # max. lin. vel. of robot
+  u_max: 0.3,
+  # desired R&B reading for robot
+  sigma_des_robot: 3,
+  # desired R&B reading for objects
+  sigma_des_obj: 3,
+  # force offset for obstacles
+  c_obs: 0,
+  # force offset for robots
+  c_robot: -0.2,
+  angle_off: -1.4,
+  # flocking params. dynamically updated
+  dynamic_flocking_params: true}

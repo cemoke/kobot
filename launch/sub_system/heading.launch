@@ -1,0 +1,7 @@
+<launch>
+
+    <node pkg="kobot" name="heading" type="heading.py"/>
+    <!-- <node pkg="kobot" name="virtual_heading" type="virtual_heading.py"/> -->
+    <!-- <node pkg="kobot" name="virtual_heading" type="virtual_heading_ros.py"/> -->
+
+</launch>

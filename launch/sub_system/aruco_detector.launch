@@ -1,0 +1,31 @@
+<launch>
+	<include file="$(find kobot)/launch/move.launch"/>
+    <arg name="enable_raw" default="false"/>
+    <arg name="enable_imv" default="false"/>
+    <arg name="camera_id" default="0"/>
+    <arg name="camera_frame_id" default="cam_link"/>
+    <arg name="camera_name" default="raspicam"/>
+    <rosparam command="load" file="$(find kobot)/config/camera_calibration.yml" />
+
+
+    <!-- TF-->
+    <node pkg="tf" type="static_transform_publisher" name="cam_link_broadcaster" args="0.06 0 0.074 -0.5 0.5 -0.5 0.5 base_link cam_link 20" />
+    <!-- to be able to visualize camera feed in Rviz -->
+	<!-- odom frame is coincident with map frame -->
+    <!-- <node pkg="tf" type="static_transform_publisher" name="odom_link_broadcaster" args="0 0 0 0 0 0 1 map odom 20" /> -->
+    <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_broadcaster" args="0 0 0 0 0 0 1 odom base_link 20" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="world_link_broadcaster" args="0 0 0 0 0 0 1 kobot_2/base_link base_link 20" />
+    <!-- <node pkg="tf" type="static_transform_publisher" name="odom_link_broadcaster" args="0 0 0 0 0 0 1 base_link odom 20" /> -->
+
+<node type="raspicam_node" pkg="raspicam_node" name="raspicam_node">
+        <param name="private_topics" value="true"/>
+        <param name="camera_name" value="$(arg camera_name)"/>
+        <param name="width" value="640"/>
+        <param name="height" value="480"/>
+        <param name="framerate" value="10"/>
+        <param name="exposure_mode" value="antishake"/>
+        <param name="shutter_speed" value="0"/>
+    </node>
+    <node pkg="kobot" name="aruco_detector" type="aruco_detector.py" output="screen"/>
+    <node pkg="kobot" name="landmark_tf" type="landmark_tf.py" output="screen"/>
+</launch>

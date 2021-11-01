@@ -1,0 +1,13 @@
+<launch>
+
+	<rosparam command="load" file="$(find kobot)/config/flocking_rps.yml" />
+    <!-- <arg name="my_ns" value="5"/> -->
+    <arg name="my_ns" default="$(env ROS_HOSTNAME)" />
+    <group ns="$(arg my_ns)">
+	    <!-- <rosparam command="load" file="$(find kobot)/config/flocking_rps.yml" /> -->
+        <include file="$(find kobot)/launch/flocking_rps.launch">
+            <!-- <arg name="namespace" value="$(arg my_ns)" />  -->
+        </include>
+    </group>
+
+</launch>

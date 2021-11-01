@@ -1,0 +1,12 @@
+<launch>
+
+	<rosparam command="load" file="$(find kobot)/config/motor_calibration.yml" />
+	<rosparam command="load" file="$(find kobot)/config/odom_calibration.yml" />
+    <node pkg="kobot" name="teleop_key" type="teleop_key.py" output="screen"/>
+    <node pkg="kobot" name="cmd_vel2motors" type="cmd_vel2motors.py"/>
+    <node pkg="kobot" name="differential_driver" type="differential_driver.py"/>
+    <!-- <node pkg="kobot" name="range_n_bearing" type="range_n_bearing.py"/> -->
+    <node pkg="kobot" name="range_n_bearing" type="tof_ranger.py"/>
+    <node pkg="kobot" name="battery_monitor" type="battery_monitor.py"/>
+
+</launch>

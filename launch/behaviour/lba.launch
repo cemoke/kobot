@@ -1,0 +1,14 @@
+<launch>
+
+
+	<rosparam command="load" file="$(find kobot)/config/lba.yml" />
+	<rosparam command="load" file="$(find kobot)/config/floor_sensor_calibration.yml" />
+	<include file="$(find kobot)/launch/aruco_detector.launch"/>
+	<include file="$(find kobot)/launch/odom.launch"/>
+	<include file="$(find kobot)/launch/move.launch"/>
+
+
+	<node pkg="kobot" name="floor_sensor" type="floor_sensor.py"/>
+	<!-- <node pkg="kobot" name="lba" type="lba.py" output="screen"/> -->
+
+</launch>

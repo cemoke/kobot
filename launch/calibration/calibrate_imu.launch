@@ -1,0 +1,8 @@
+<launch>
+
+	<include file="$(find kobot)/launch/move.launch"/>
+
+    <node pkg="kobot" name="imu" type="mpu_test.py"/>
+    <node pkg="kobot" name="calibrate_imu" type="calibrate_imu.py" output="screen"/>
+
+</launch>
