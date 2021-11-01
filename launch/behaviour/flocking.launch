@@ -1,13 +1,15 @@
 <launch>
 
-	<include file="$(find kobot)/launch/move.launch"/>
-	<!-- <include file="$(find kobot)/launch/filtered_imu.launch"/> -->
-	<!-- <include file="$(find kobot)/launch/heading.launch"/> -->
-	<include file="$(find kobot)/launch/odom.launch"/>
-
-	<rosparam command="load" file="$(find kobot)/config/flocking_wall.yml" />
-
-	<node pkg="kobot" name="vis_flocking" type="vis_flocking.py"/>
-	<node pkg="kobot" name="flocking" type="flocking_wall.py"/>
+	<rosparam command="load" file="$(find kobot)/config/flocking_rps.yml" />
+    <!-- <arg name="my_ns" value="5"/> -->
+    <arg name="my_ns" default="$(env ROS_HOSTNAME)" />
+    <group ns="$(arg my_ns)">
+	    <!-- <rosparam command="load" file="$(find kobot)/config/flocking_rps.yml" /> -->
+	    <include file="$(find kobot)/launch/move.launch"/>
+	    <include file="$(find kobot)/launch/filtered_imu.launch"/>
+	    <include file="$(find kobot)/launch/heading.launch"/>
+        <include file="$(find kobot)/launch/flocking_rps.launch">
+            <!-- <arg name="namespace" value="$(arg my_ns)" />  -->
+    </group>
 
 </launch>

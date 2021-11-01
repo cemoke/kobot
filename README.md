@@ -98,7 +98,7 @@ Also two types of parameter files in .yaml format are used to configure the node
 - Controller
   - Velocity Controller (PID gains, velocity limits, control loop frequency)
   - Pose Controller (PID gains, error-window, max. translational velocity)
-
+## Important Parameters
 | Flocking Parameter        | Explanation          | Default Value  |
 | ------------- |:-------------:| -----:|
 | beta      | Weight of proximal control to heading alignment | 1.5 |
@@ -114,47 +114,49 @@ Also two types of parameter files in .yaml format are used to configure the node
 | d_landmark | Max. detection distance for landmarks |    500 mm |
 | d_obs | Max. detection distance for obstacles|  100 mm |
 | d_rob | Max. detection distance for robots|  250 mm |
-
-| Calibration Parameter        | Explanation          | Default Value  |
-| ------------- |:-------------:| -----:|
-| w_max      | Max. wait duration inside the cue| 120 s |
-| u_max      | Max. translational velocity      |   0.1 m/s |
-| d_landmark | Max. detection distance for landmarks |    500 mm |
-| d_obs | Max. detection distance for obstacles|  100 mm |
-| d_rob | Max. detection distance for robots|  250 mm |
-
-| Controller Parameter        | Explanation          | Default Value  |
-| ------------- |:-------------:| -----:|
-| w_max      | Max. wait duration inside the cue| 120 s |
-| u_max      | Max. translational velocity      |   0.1 m/s |
-| d_landmark | Max. detection distance for landmarks |    500 mm |
-| d_obs | Max. detection distance for obstacles|  100 mm |
-| d_rob | Max. detection distance for robots|  250 mm |
 ## Launch Files
 Launch files are used for running multiple nodes, loading parameters to the ROS's parameter server and handling individual namespaces.
 - Sub-system launch files
+  - aruco_detector
   - heading
   - move
-  - imu
+  - filtered_imu
 - Behaviour launch files
   - flocking
-  - aggregation
-  - dispersion_avoidance
+  - alignment
+  - wall_following
+  - beeclust
+  - lba
+  - rl_lba
 - Calibration launch files
-  - camera
-  - imu
-  - odometry
-  - floor_sensor
+  - calibrate_camera
+  - calibrate_imu
 # 4.Work in Progress
 - Kobot-T sub-system drivers 
 - flocking behaviour for Kobot-F
 - Kobot-H and Kobot-L (holonomic wheeled and legged swarm robots) conceptual design
 # 5.License
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+MIT License
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Copyright (c) 2021 cemoke
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 # 6.Additional Links
 ## Related Repositories
 ![Alt text](img/software_architecture.png?raw=true "Title")
