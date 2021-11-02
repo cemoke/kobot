@@ -18,11 +18,11 @@ Currently, 3 different swarm robots are extended from the Kobot platform:
 [SD Card Image](https://drive.google.com/file/d/1YUq0BFDZqvFaTTxi0CF9Gvh6_W8bduPv/view?usp=sharing) of the Kobot-F running Raspbian Buster and ROS Melodic
 Image of the Kobot-T running Raspbian Buster and ROS Melodic (In-progress)
 ## Branches
-Branches are used for developing extended robot specific features until they are ready to be merged with the main branch. Maintainers of the branches are as following:
+Branches are used for developing extended robot specific features until they are ready to be merged with the main branch. Maintainers and branches are:
 - main (<cembi@metu.edu.tr>)
 - kobot_w (<cembi@metu.edu.tr>)
 - kobot_f (<cembi@metu.edu.tr>,<mehmet.sahin1001@gmail.com>)
-- kobot_t (<egur@metu.edu.tr>)
+- kobot_t (<emregur@metu.edu.tr>)
 
 ## Hardware Architecture
 ![Alt text](img/kobot_hw.png?raw=true "Title")
@@ -44,7 +44,7 @@ If you are not using the SD Card images and would like to use kobot_ros package 
 - RPi.GPIO (handling basic GPIO operations such as digital write, read)
 
 ## Installation
-There are no installation instructions for the stand-alone kobot package. Recommended way is using one of the SD Card images.
+There are no installation instructions for the stand-alone kobot package. The recommended way is using one of the SD Card images.
 
 # 2.Nodes
 This repository contains two types of nodes:
@@ -59,22 +59,21 @@ This repository contains two types of nodes:
   - rl_lba (landmark-based aggregation using reinforcement learning), i.e. Extended version of lba exploring, exploiting an action space when a landmark in the environment is detected
 - Sub-system driver nodes abstracting the hardware using ROS messages and subscriber/publisher architecture. 
   - common nodes for all extended robots
-    - range_n_bearing
-    - landmark_pose_estimator
-    - pose_controller
-    - heading
-    - local_communication
-    - battery_monitor
+    - range_n_bearing (get angle and range of objects and decide whether robot or obstacle)
+    - landmark_pose_estimator (estimate pose of the ArUco marker abstracting landmarks)
+    - pose_controller (controller pose of the robot, i.e. x,y,theta)
+    - heading (get heading of the robot w.r.t. a common reference)
+    - local_communication (broadcast locally using XBee RF module)
+    - battery (check battery cell voltages regularly)
   - kobot_w, kobot_t specific nodes
-    - teleop_key
-    - cmd_vel2motors
-    - differential_driver
-    - wheel_odometry
-    - landmark_detector
-    - mpu9255
-    - floor_sensor
+    - teleop_key (tele-operate robot by using keyboard)
+    - cmd_vel2motors (convert ROS's cmd_vel msg to seperate velocity commands for motors)
+    - differential_driver (set, get controller params., velocity of the motors)
+    - odom (collect wheel odometry data from the motors, get robot pose)
+    - mpu9255 (get orientation data from IMU)
+    - floor_sensor (get IR reflection intensity from floor sensors)
   - kobot_f specific nodes
-    - tello_driver
+    - tello_driver (to operate Ryze Tello drone)
 ## Messages
 Custom ROS messages used by the Kobot sub-systems and behavioural nodes:
 - range_n_robot, i.e. reading of an individual sensor of the range and bearing board. Robot field is a boolean which is true for robots and false for all other objects. Range field is the range reading corresponding to the sensor.
@@ -117,10 +116,10 @@ Three types of parameter files in .yaml format are used to configure the operati
 ## Launch Files
 Launch files are used for running multiple nodes, loading parameters to the ROS's parameter server and handling individual namespaces.
 - Sub-system launch files
-  - aruco_detector
-  - heading
   - move
-  - filtered_imu
+  - heading
+  - landmark_pose_estimator
+  - floor_sensing
 - Behaviour launch files
   - flocking
   - alignment
